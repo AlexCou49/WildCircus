@@ -6,7 +6,6 @@ const http = require ('http');
 const api = express();
 
 
-
 //log connection database
 const connection = mysql.createConnection({
   host: "localhost",
