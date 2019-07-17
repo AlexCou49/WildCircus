@@ -32,6 +32,19 @@ api.get('/show', (req, res) => {
   })
 });
 
+
+api.post('/message', (req, res) => {
+  const formData = req.body;
+  connection.query('INSERT INTO message SET ?', formData, (err, results) => {
+   if (err) {
+     console.log(err);
+     res.status(500).send("Erreur lors de la sauvegarde d'un film");
+   } else {
+     res.sendStatus(200);
+   }
+ });
+ });
+
 //filter price show 
 api.get('/show/filter?', (req, res) => {
   if(req.query.price){

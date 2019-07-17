@@ -45,6 +45,7 @@ function Show(props) {
 
     <div className="row mt-8">
       <div className="col-md-15">
+        <button onClick={toggleFilterPrice}>Trier par prix</button>
 
         {
           shows.map((show, index) => {
