@@ -41,15 +41,6 @@ function Show(props) {
       })
   }, [])
 
-  // const filterArticle = (tag, [setFunc, param]) => {
-  //     if (param) {
-  //         setArticles(articles.reverse());
-  //     } else {
-  //         setArticles(_.sortBy(articles, tag));
-  //     }
-  //     setFunc(!param);
-  // }
-
   return (
 
     <div className="row mt-8">
