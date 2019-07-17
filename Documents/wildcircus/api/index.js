@@ -1,13 +1,13 @@
 const express = require('express');
 const mysql = require('mysql')
+const nodemailer = require('nodemailer');
+const http = require ('http');
 
 const api = express();
 
-api.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
 
+
+//log connection database
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -20,11 +20,12 @@ connection.connect((err) => {
   console.log("I'm connected..");
 });
 
-
+//test
 api.get('/', (req, res) => {
   res.send('ok?good')
 });
 
+//call api database show
 api.get('/show', (req, res) => {
   connection.query('SELECT * FROM shows', (err, result) => {
     if (err) throw err;
@@ -32,6 +33,7 @@ api.get('/show', (req, res) => {
   })
 });
 
+//filter price show 
 api.get('/show/filter?', (req, res) => {
   if(req.query.price){
     if(req.query.price === "asc") {

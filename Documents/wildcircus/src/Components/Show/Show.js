@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Cart from '../Cart/Cart';
+// import Cart from '../Cart/Cart';
 
 import './Show.css';
 
@@ -51,46 +51,35 @@ function Show(props) {
   // }
 
   return (
+
     <div className="row mt-8">
       <div className="col-md-15">
 
-       <div className="card">
-          <div className="card">
-            <div className="row">
-              <div className="card-title mr-5 ml-5 mt-2 mb-5">Shows</div>
-              <div className="card-title mr-5 ml-5 mt-2 mb-5">Name</div>
-              <div className="card-title mr-5 ml-5 mt-2 mb-5">Description</div>
-              <div className="card-title mr-5 ml-5 mt-2 mb-5" onClick={toggleFilterPrice}>Price</div>
-           </div>
-           
-                {shows.map((show, index) => {
-                  return (
+        {
+          shows.map((show, index) => {
+            return (
 
-                    
-                    <tr className="py-2 tr-height" key={index}>
-                      <th className="card-text px-2" scope="row" width="50%">{show.name}</th>
-                      <td className="card-text" width="20%">{show.description}</td>
-                      
-                      <td className="card-text" width="20%">{show.price} $</td>
+              <div className="card text-center mb-5">
+                <div className="py-2 tr-height" key={index}>
+                  <div className="card-header">{show.name}</div>
+                  <div className="card-body">
+                    <h5 className="card-title">{show.quantity} places</h5>
+                    <p className="card-text">{show.description}</p>
+                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                  </div>
+                  <div className="card-footer text-muted">{show.price} $ /pers</div>
+                </div>
+              </div>
+            )
+          })} 
+
           
-                      <td className="card-text" width="10%">{show.quantity}</td>
-                      <td width="20%">
-                        {/* <button onClick={() => props.dispatch(addArticle(article))} className="btn btn-primary btn-sm float-right mr-2">Add to cart</button> */}
-                      </td>
-                    </tr>
-                  )
-                })}
-
-          </div>
-
-        </div>
       </div>
-      <Cart />
     </div>
-  )
-}
+  )}
 
-export default Show;
+
+  export default Show;
 
 
 
