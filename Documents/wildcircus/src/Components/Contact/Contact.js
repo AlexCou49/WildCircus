@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function Contact() {
   const [email, setEmail] = useState('');
@@ -18,12 +19,12 @@ function Contact() {
   };
 
    return (
-        <form className="text-center border border-light p-5 mb-3">
+        <form className="text-center border-light p-5 mb-3">
         <p className="h4 mb-4">Contactez-nous</p>
         <input type="text" value={name} onChange={event => setName(event.target.value)} id="defaultContactFormName" className="form-control mb-4" placeholder="Votre nom" />
         <input type="email" value={email} onChange={event => setEmail(event.target.value)} id="defaultContactFormEmail" className="form-control mb-4" placeholder="Votre E-mail" />
         <div className="form-group">
-          <textarea type="message" value={message} onChange={event => setMessage(event.target.value)} id="exampleFormControlTextarea2" rows="3" placeholder="Votre message" />
+          <textarea className="form-control mb-6" type="message" value={message} onChange={event => setMessage(event.target.value)} id="exampleFormControlTextarea2" rows="3" placeholder="Votre message" />
         </div>
         <div className="custom-control custom-checkbox mb-4">
           <input type="checkbox" className="custom-control-input" id="defaultContactFormCopy" />
@@ -34,10 +35,3 @@ function Contact() {
   }
   export default Contact;
   
-
-  CREATE TABLE message (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255),
-    email VARCHAR(255),
-    message VARCHAR(255)
-   )
